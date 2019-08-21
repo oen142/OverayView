@@ -21,7 +21,8 @@
         <service
             android:name=".MyService"
             android:enabled="true"
-            android:permission="android.permission.SYSTEM_ALERT_WINDOW" >
+            android:permission="android.permission.SYSTEM_ALERT_WINDOW"
+            android:theme="@android:style/Theme.Translucent">
         </service>
     </application>
 

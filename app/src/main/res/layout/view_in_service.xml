@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/viewservice_ll"
+   >
 
-    <ImageButton
+    <ImageView
+        android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/bt"
-        android:src="@drawable/abeeweget"
-        android:layout_marginTop="12dp" />
+        android:src="@drawable/abeeweget"/>
 
-</RelativeLayout>
+</LinearLayout>
