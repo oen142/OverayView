@@ -8,17 +8,11 @@
     android:orientation="vertical"
     android:gravity="center">
 
-
     <Button
-        android:text="켜기"
-        android:id="@+id/btn1"
+        android:onClick="turnoff_abee_ad"
+        android:id="@+id/main_bt_shutdown"
+        android:text="광고끄기"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <Button
-        android:text="끄기"
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
 
 </LinearLayout>
