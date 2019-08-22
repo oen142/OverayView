@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -100,9 +101,15 @@ public class MyService extends Service {
 
 
 
-                if( (params.y < (-(height- height/2)+200) )&&((params.x >-30) && params.x < 30) ){
-                    Toast.makeText(getApplicationContext() , "오픈 url" , Toast.LENGTH_LONG).show();
+                if( (params.y < (-(height- height/2)+200) )){
+                    Toast.makeText(getApplicationContext() , "광고페이지로 이동합니다." , Toast.LENGTH_LONG).show();
+                    Intent it = new Intent(getApplicationContext() , Webview.class);
+                    startActivity(it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     wm.removeView(mView);
+                }else if((params.y > ((height- height/2)-200) )){
+                    Toast.makeText(getApplicationContext() , "광고를 보지않고 종료합니다." , Toast.LENGTH_LONG).show();
+                    wm.removeView(mView);
+
                 }
 
                 return true;
