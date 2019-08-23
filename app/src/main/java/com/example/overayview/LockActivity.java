@@ -1,20 +1,23 @@
 package com.example.overayview;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.ClipData;
-import android.content.ClipDescription;
-import android.graphics.BitmapFactory;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 
 public class LockActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,10 +25,11 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView pointImage, missionImage, homeImage, linkToUrlImage, lockerImage, abeeLogo;
     private TextView dateTxt, timeTxt, pointTxt, pointPlusTxt;
     private LinearLayout dragLayout;
+    private SeekBar seekBar;
 
     private int index, res;
-    private static final int[] randomResources = {
-            R.drawable.abee_ad_1,
+    private int[] randomResources = {
+            R.drawable.abee_ad_low,
             R.drawable.abee_ad_2,
             R.drawable.abee_ad_3,
             R.drawable.abee_ad_4
@@ -34,10 +38,11 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lock);
+        setContentView(R.layout.activity_lock_seek);
 
         initView();
         initData();
+//        ifScreenOn();
     }
 
     private void initView() {
@@ -52,7 +57,7 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
         pointTxt = findViewById(R.id.point_txt);
         pointPlusTxt = findViewById(R.id.point_plus_txt);
         abeeLogo = findViewById(R.id.abee_logo);
-        dragLayout = findViewById(R.id.drag_layout);
+        seekBar = findViewById(R.id.seekbar);
 
         coverImage.setOnClickListener(this);
         pointImage.setOnClickListener(this);
@@ -60,17 +65,32 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
         homeImage.setOnClickListener(this);
         linkToUrlImage.setOnClickListener(this);
         lockerImage.setOnClickListener(this);
-
-        coverImage.setBackground(new BitmapDrawable(
-                getResources(), BitmapFactory.decodeResource(
-                getResources(), R.drawable.abee_ad_1
-        )));
     }
 
     private void initData() {
         index = (int) Math.random() * 10;
-        res = randomResources[index];
-        coverImage.setImageResource(res);
+        res = randomResources[0];
+        Glide.with(this).load(res).thumbnail(0.1f).into(coverImage);
+    }
+
+    private void ifScreenOn() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        intentFilter.addAction(Intent.ACTION_SCREEN_ON);
+
+        BroadcastReceiver screenOnOff = new BroadcastReceiver() {
+            public static final String SCREEN_OFF = "android.intent.action.SCREEN_OFF";
+            public static final String SCREEN_ON = "android.intent.action.SCREEN_ON";
+
+            public void onReceive(Context context, Intent intent) {
+                if (intent.getAction().equals(SCREEN_OFF)) {
+                    Log.e("MainActivity", "Screen Off");
+                } else if (intent.getAction().equals(SCREEN_ON)) {
+                    Log.e("MainActivity", "Screen On");
+                }
+            }
+        };
+        registerReceiver(screenOnOff, intentFilter);
     }
 
     @Override
@@ -96,22 +116,5 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         recycleView(findViewById(R.id.cover_image));
-    }
-
-    private final class LongClickListener implements View.OnLongClickListener {
-
-        @Override
-        public boolean onLongClick(View view) {
-            ClipData.Item item = new ClipData.Item((CharSequence) view.getTag());
-            String[] mimeTypes = {
-                    ClipDescription.MIMETYPE_TEXT_PLAIN
-            };
-            ClipData data = new ClipData(view.getTag().toString(), mimeTypes, item);
-            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-
-            view.startDrag(data, shadowBuilder, view, 0);
-            view.setVisibility(View.INVISIBLE);
-            return true;
-        }
     }
 }
