@@ -19,6 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class LockActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageButton coverImage;
@@ -71,6 +74,10 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
         index = (int) Math.random() * 10;
         res = randomResources[0];
         Glide.with(this).load(res).thumbnail(0.1f).into(coverImage);
+
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
+        dateTxt.setText(simpleDateFormat.format(date));
     }
 
     private void ifScreenOn() {
