@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -55,11 +55,13 @@ public class MyService extends Service {
 
         mView = inflate.inflate(R.layout.view_in_service, null);
         final LinearLayout viewservice_ll = mView.findViewById(R.id.viewservice_ll);
+
         viewservice_ll.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                System.out.println("터치이벤트");
+                final ImageView iv = mView.findViewById(R.id.bt);
+                iv.setImageResource(R.drawable.abeetouch);
                 Display display = ((WindowManager)getApplicationContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
                 Point size = new Point();
                 display.getSize(size);
@@ -77,6 +79,8 @@ public class MyService extends Service {
                         break;
 
                     case MotionEvent.ACTION_UP:
+
+                        iv.setImageResource(R.drawable.abeeweget);
                         break;
 
                     case MotionEvent.ACTION_MOVE:
@@ -111,7 +115,6 @@ public class MyService extends Service {
                     wm.removeView(mView);
 
                 }
-
                 return true;
             }
 
