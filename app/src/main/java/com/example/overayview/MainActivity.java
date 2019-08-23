@@ -1,35 +1,30 @@
 package com.example.overayview;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     String alert_abee_ad_st = "";
+
 
     private static final int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 
 
@@ -60,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int id) {
 
                                     Toast.makeText(MainActivity.this , "아비광고 설정합니다." , Toast.LENGTH_LONG).show();
-                   //                 checkPermission();
-                                    startService(new Intent(getApplicationContext(), MyService.class));
+                                    checkPermission();
+              //                      startService(new Intent(getApplicationContext(), MyService.class));
              /*                       SharedPreferences sharedPreferences = getSharedPreferences("abee_ad",MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("abee_ad" , "yes");
@@ -78,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
                             });
 
             AlertDialog alertDialog = alertDialogBuilder.create();
-
-            // 다이얼로그 보여주기
             alertDialog.show();
 
         }
@@ -103,5 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
         stopService(new Intent(MainActivity.this, MyService.class));
     }
+
 
 }
