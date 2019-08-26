@@ -1,10 +1,13 @@
-package com.example.overayview;
+package com.example.overayview.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.overayview.R;
+import com.example.overayview.dialog.WebviewProgressDialog;
 
 public class Splash extends AppCompatActivity {
 
