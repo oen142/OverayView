@@ -1,8 +1,10 @@
-package com.example.overayview;
+package com.example.overayview.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.overayview.R;
 
 public class AbeeMain extends AppCompatActivity {
 

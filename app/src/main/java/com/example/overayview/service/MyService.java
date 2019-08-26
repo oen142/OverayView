@@ -1,4 +1,4 @@
-package com.example.overayview;
+package com.example.overayview.service;
 
 import android.app.Service;
 import android.content.Context;
@@ -16,6 +16,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.example.overayview.R;
+import com.example.overayview.Webview;
 
 
 public class MyService extends Service {
