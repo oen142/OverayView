@@ -8,49 +8,104 @@
     tools:context=".activities.MainActivity">
 
     <LinearLayout
+        android:background="#ff4540"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/main_bt_home"
+
+        <LinearLayout
+            android:id="@+id/abee_main_icon_ll1"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="홈"></Button>
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/main_bt_shop"
+            <ImageView
+                android:src="@drawable/home"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ImageView>
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/abee_main_icon_ll2"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="상점"></Button>
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/main_bt_mission"
+            <ImageView
+                android:src="@drawable/not_shop"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ImageView>
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/abee_main_icon_ll3"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="미션"></Button>
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/main_bt_etc"
+            <ImageView
+                android:src="@drawable/not_mission"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ImageView>
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/abee_main_icon_ll4"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="더보기"></Button>
+            android:orientation="vertical">
+
+            <ImageView
+                android:src="@drawable/not_more"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ImageView>
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TextView>
+        </LinearLayout>
+
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="50dp"
+        android:orientation="horizontal">
 
-        <TextView
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="프로필 현황 포인트 적립내역 버튼">
-
-        </TextView>
+            android:layout_weight="1"></LinearLayout>
 
     </LinearLayout>
 

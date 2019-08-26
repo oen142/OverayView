@@ -36,16 +36,6 @@ public class MainActivity extends AppCompatActivity {
         alert_abee_ad_st = sf.getString("abee_ad","");
 
         alert_abee_ad(alert_abee_ad_st);
-        main_bt_shop = findViewById(R.id.main_bt_shop);
-
-        main_bt_shop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext() , LockActivity.class);
-                startActivity(it);
-
-            }
-        });
 
     }
 
