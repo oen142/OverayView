@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -20,7 +21,7 @@ import com.example.overayview.service.MyService;
 public class MainActivity extends AppCompatActivity {
 
     String alert_abee_ad_st = "";
-
+    Button main_bt_shop ;
 
     private static final int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 1;
     @Override
@@ -56,10 +57,9 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveButton("광고설정",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-
                                     Toast.makeText(MainActivity.this , "아비광고 설정합니다." , Toast.LENGTH_LONG).show();
                                     checkPermission();
-              //                      startService(new Intent(getApplicationContext(), MyService.class));
+                                    startService(new Intent(getApplicationContext(), MyService.class));
              /*                       SharedPreferences sharedPreferences = getSharedPreferences("abee_ad",MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("abee_ad" , "yes");
