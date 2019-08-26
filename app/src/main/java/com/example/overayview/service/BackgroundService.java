@@ -57,7 +57,7 @@ public class BackgroundService extends Service {
         timerTask = new TimerTask() {
             @Override
             public void run() {
-                Log.i(TAG, "in timer ++++ " + (counter++));
+                Log.i(TAG, "Background Timer Task = " + (counter++));
             }
         };
     }

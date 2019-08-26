@@ -72,6 +72,7 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lock_seek);
 
+        actionBackground();
         initView();
         initData();
         ifScreenOn();
@@ -231,6 +232,6 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        recycleView(findViewById(R.id.cover_image));
+        recycleView(coverImage);
     }
 }

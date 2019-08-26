@@ -16,10 +16,15 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".activities.Splash"
+            android:name=".activities.SplashActivity"
+            android:label="Splash"
             android:theme="@style/Splash"></activity>
-        <activity android:name=".activities.AbeeMain"></activity>
-        <activity android:name=".Webview"></activity>
+        <activity
+            android:name=".activities.AbeeMain"
+            android:label="AbeeMain"></activity>
+        <activity
+            android:name=".Webview"
+            android:label="WebView"></activity>
         <activity android:name=".activities.LockActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,15 +45,15 @@
             android:name=".service.BackgroundService"
             android:enabled="true" />
 
-        <service
-            android:name=".service.BackgroundService"
-            android:enabled="true"
-            android:stopWithTask="false" />
-
-        <receiver android:name=".receiver.BootReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
+        <!--        <service-->
+        <!--            android:name=".service.BackgroundService"-->
+        <!--            android:enabled="true"-->
+        <!--            android:stopWithTask="false" />-->
+        <!---->
+        <!--        <receiver android:name=".receiver.BootReceiver">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+        <!--            </intent-filter>-->
+        <!--        </receiver>-->
     </application>
 </manifest>

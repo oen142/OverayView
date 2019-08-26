@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.overayview.R;
 import com.example.overayview.dialog.WebviewProgressDialog;
 
-public class Splash extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
 
     WebviewProgressDialog mProgress;
